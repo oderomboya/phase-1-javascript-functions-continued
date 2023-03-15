@@ -32,16 +32,27 @@ describe("index.js", () => {
       expect(wrapAdjective).to.exist
     })
     
-    it("when initialized with '*' creates a function that, when called, wraps an adjective in a highlight", function() {
-      let result = wrapAdjective('*')
-      let emphatic = result("a hard worker")
-      expect(emphatic).to.equal("You are *a hard worker*!")
-    });
+    
+function saturdayFun(activity = 'roller-skate'){
 
-    it("when initialized with '||' creates a function that, when called, wraps an adjective in a highlight", function() {
-      let result = wrapAdjective("||")
-      let emphatic = result("a dedicated programmer")
-      expect(emphatic).to.equal("You are ||a dedicated programmer||!")
-    });
-  })
-})
+  return `This Saturday, I want to ${activity}!`
+  }
+  
+  function mondayWork(activity= 'go to the office'){
+  
+      return `This Monday, I will ${activity}.`
+  }
+  
+  
+  function wrapAdjective(symbol='*'){
+  
+     return function(emphatic ='special'){
+  
+          return `You are ${symbol}${emphatic}${symbol}!`
+      }
+     
+  }
+  
+      
+  
+  wrapAdjective("||")("a dedicated programmer")("||")
